@@ -1,0 +1,184 @@
+var welcome1 = {
+  type: 'html-button-response',
+  stimulus: '<p> Welcome to the experiment! Experiment has 2 tasks.</p>',
+choices: ['Dalje']
+}
+timeline.push(welcome1);
+
+var welcome1 = {
+  type: 'html-button-response',
+  stimulus: '<p>This is task #1, the practice phase.</p>',
+choices: ['Dalje']
+}
+timeline.push(welcome1);
+
+var stimuli1 = [
+            'Blava_LR.mp3',
+            'Blava_SR.mp3',
+            'Blava_LF.mp3',
+            'Blava_SF.mp3',
+        ]
+        
+   var instructions1 = {
+            type: 'instructions',
+            pages: [`<p>You will now hear 1 nonsense word that has no meaning. The word is spoken in 4 ways.</p>`+
+            `<p>Your task is to listen to all 4 versions of the word and to group them based on their similarity.</p>`,
+            `<p>If you think that the words are similar, you will place them next to each other.</p>`+
+            `<p>Here is an example.</p>`,
+            `<p>You will see one big empty circle and small circles around it. Each small circle is one word that you will be able to hear when you hover over it with a mouse (not now, this is just an example).<br><img src="Image0_1.png"><br></p>`,
+            `<p>After you listen to the words, you will group them based on their <b>similarity</b> like in the video. This participant thinks that the three words are similar and that one word is completely different. Also, this participant thinks that green and red are more similar than green and blue or red and blue.<br><video width="320" height="240" controls controlsList="nodownload">
+  <source src="Video1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video><br></p>`,
+`<p>This participant thinks that blue and red are similar and that green and orange are similar. Also, it is possible that the participant thinks that green is not as different from red and blue because it is closer to them than orange is. <br><video width="320" height="240" controls controlsList="nodownload">
+  <source src="Video2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video><br></p>`,
+            `<p>Let us try. Listen to the words carefully. If the words are similar, place them next to each other. If you think the words are less similar or more different, separate them. </p>`,
+            ],
+            show_clickable_nav: true,
+            response_ends_trial: true
+        }      
+        
+        var similarity_practice1 = {
+            type: 'audio-tokens',
+            ratingtype: 'similarity',
+            stimuli: stimuli1,
+            force_listen: false,
+            loop: false,
+            draw_edges: true
+        }
+
+        // Add all trials to a timeline array
+        var good1 = { 
+          timeline: [
+            instructions1,
+            similarity_practice1
+        ]
+        };
+        timeline.push(good1);
+    
+        var stimuli2 = [
+            'Kavan_SR.mp3',
+            'MRejav_LF.mp3',
+            'MKavan_SR.mp3',
+            'MRejav_SF.mp3',
+            'MRejav_LR.mp3',
+            'Kavan_LF.mp3',
+            'MKavan_LR.mp3',
+            'Rejav_SF2.mp3',
+            'MKavan_LF.mp3',
+            'MRejav_SR.mp3',
+            'MKavan_SF.mp3',
+            'Rejav_LR1.mp3',
+        ]
+        
+   var instructions2 = {
+            type: 'instructions',
+            pages: [`<p>Thank you! You have completed the practice phase. You can move on to the testing phase.</p>`+
+              `<p>The same task follows. This time you will hear <b>2</b> nonsense words: 'kavan' and 'rejav' spoken by a <b>male</b></p>`+`<audio controls controlsList="nodownload" source src="audio/MRejav_SR.mp3" type="audio/mp3"></audio>`+`<p>i jedna osoba <b>female</b> pola.</p>`+ `<p><audio controls controlsList="nodownload" source src="audio/Kavan_SR.mp3" type="audio/mp3"></audio></p>`,
+            `<p> Every word is spoken 5 times each, which is <b>10</b> in total.</p>`,
+            `<p>Your task is to group words based on <b>similarity</b>. <p><b>Note: please do not group the words based on the speaker's gender, and don't group all 'rejav' and all 'kavan' words together.</b><p/>`,
+            ],
+            show_clickable_nav: true,
+            response_ends_trial: true
+        }      
+        
+        var similarity_testing1 = {
+            type: 'audio-tokens',
+            ratingtype: 'similarity',
+            stimuli: stimuli2,
+            force_listen: false,
+            loop: false,
+            draw_edges: true
+        }
+
+        // Add all trials to a timeline array
+        var good2 = { 
+          timeline: [
+            instructions2,
+            similarity_testing1
+        ]
+        };
+        timeline.push(good2);
+       
+var exercise2 = {
+            type: 'html-button-response',
+            stimulus: '<p>Thank you! Welcome to task #2!</p>',
+ choices: ['Počni']
+ }
+ timeline.push(exercise2);
+           
+       
+var stimuli3 = [
+           'Kavan_SR.mp3',
+            'MRejav_LF.mp3',
+            'MKavan_SR.mp3',
+            'MRejav_SF.mp3',
+            'MRejav_LR.mp3',
+            'Kavan_LF.mp3',
+            'MKavan_LR.mp3',
+            'Rejav_SF2.mp3',
+            'MKavan_LF.mp3',
+            'MRejav_SR.mp3',
+            'MKavan_SF.mp3',
+         
+]
+        
+        var instructions3 = {
+            type: 'instructions',
+            pages: [`<p>You will hear 8 words that you have already heard in the first task, you will place them inside of the square and you will determine to what degree the accents are <b>falling or rising</b> and <b>long and short</b>. The task is very intuitive, so let's start.</p>`,
+            ],
+            show_clickable_nav: true,
+            response_ends_trial: true
+        }   
+
+        
+         var features2d_trial2 = {
+            type: 'audio-tokens',
+            ratingtype: 'features2d',
+            prompt: 'start',
+            stimuli: stimuli3, // select all stimuli
+            force_listen: false,
+            loop: false,
+            label: ['Duration', 'Pitch'],
+            anchors: [['short', '', 'long'],
+                      ['rising', '', 'falling']]
+        }
+        
+
+        // Add all trials to a timeline array
+        var good3 = { 
+          timeline: [
+            instructions3,
+            features2d_trial2
+            
+        ]
+        };
+        timeline.push(good3); 
+
+  var block0 = {
+    type: 'survey-text',
+    questions: [
+      {prompt: '<p>Thank you for your participation!</p>'+
+'<p>Can you write down what you liked about the experiment, which strategies you used to answer the questions, what was hard, what was easy, etc? Any comment is welcome. </p>', placeholder: 'Experiment is...', rows:10, columns: 50}
+    ]
+        };
+   timeline.push(block0);  
+
+
+    var block = {
+    type: 'html-keyboard-response',
+    choices: ['a', 'A'], 
+  stimulus: '<p>Press [a] to complete the experiment.</p>',
+    stimulus_width: 300,
+    data: {
+              correct_response: 'a',
+    },
+    on_finish: function(data) {
+      if (data.response.toLowerCase() == data.correct_response) {
+        jsPsych.endExperiment('Thank you for your participation. The experiment is completed. You may close the page.');
+      }
+    }
+        };
+   timeline.push(block);
